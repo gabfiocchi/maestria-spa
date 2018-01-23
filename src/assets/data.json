@@ -1,0 +1,72 @@
+{
+    "categoryes": [
+        {
+            "label": "Todas",
+            "value": "any"
+        },
+        {
+            "label": "Animales",
+            "value": "animals"
+        },
+        {
+            "label": "Arquitectura",
+            "value": "arch"
+        },
+        {
+            "label": "Naturaleza",
+            "value": "nature"
+        },
+        {
+            "label": "Personas",
+            "value": "people"
+        },
+        {
+            "label": "Tecnología",
+            "value": "tech"
+        }
+    ],
+    "social_networks": [
+        {
+            "label": "Facebook",
+            "value": "facebook",
+            "types": [
+                {
+                    "label": "Posteo",
+                    "value": "posteo",
+                    "width": 1200,
+                    "height": 1200
+                },
+                {
+                    "label": "Foto perfil",
+                    "value": "foto_perfil",
+                    "width": 512,
+                    "height": 512
+                }
+            ]
+        },
+        {
+            "label": "Instagram",
+            "value": "instagram",
+            "types": [
+                {
+                    "label": "Posteo",
+                    "value": "posteo",
+                    "width": 1080,
+                    "height": 1080
+                }
+            ]
+        },
+        {
+            "label": "Twitter",
+            "value": "twitter",
+            "types": [
+                {
+                    "label": "Posteo",
+                    "value": "posteo",
+                    "width": 750,
+                    "height": 750
+                }
+            ]
+        }
+    ]
+}

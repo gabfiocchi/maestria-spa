@@ -10,6 +10,11 @@ import SocialSupport from './assets/data.json';
 
 class App extends React.Component {
 
+  /**
+   * 
+   * @param props declaramos las propiedades que va a tener nuestro componente, así como también le decimos que eventos va a tener que escuchar y a qué función reacionar, por eso se hace un .bind() de la función.
+   *  Se setea el estado inicial de cada propiedad.
+   */
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -24,8 +29,10 @@ class App extends React.Component {
     }
   }
 
+  /**
+   * Realiza el manejo de eventos cuando se cambia el valor de la red social elegida. Se actualiza también el estado de la propiedad correspondiente.
+   */
   handleChange = (selectedOption) => {
-
     if (selectedOption && selectedOption.label) {
       let oldSelection = this.state.selectedOption ? this.state.selectedOption.label : null;
       if (oldSelection !== selectedOption.label) {
@@ -38,16 +45,30 @@ class App extends React.Component {
     this.setState({ selectedOption });
 
   }
+
+  /**
+   * Realiza el manejo de eventos cuando se cambia el valor del tipo de red social que tenemos elegida. Se actualiza también el estado de la propiedad correspondiente.
+   */
   handleChangeType = (selectedType) => {
     this.setState({ selectedType });
   }
+
+  /**
+  * Realiza el manejo de eventos cuando se cambia el valor del tipo de imagen que queremos que traiga por defecto. Se actualiza también el estado de la propiedad correspondiente.
+  */
   handleChangeCategory = (selectedCategory) => {
 
     selectedCategory = selectedCategory ? selectedCategory : { label: 'Todas', value: 'any' };
     this.setState({ selectedCategory });
   }
 
+  /**
+   * renderizamos el componente en el DOM virtual que genera react.
+   */
   render() {
+    /**
+     * Creamos las constantes con los valores que queremos emplear en el componente. Así como sus estados iniciales.
+     */
     const { selectedOption, selectedType, selectedCategory } = this.state;
     const valueNetwork = selectedOption && selectedOption.value;
     const valueType = selectedType && selectedType.value;
@@ -63,6 +84,7 @@ class App extends React.Component {
           <p className="App-intro">
             Selecciona la categoría de la imagen:
         </p>
+          {/* Utiliza el componente de selectores y lo rellenamos con la información que traemos de un json de configuraciones. */}
           <Select
             name="category-type"
             value={categoryType}
@@ -72,6 +94,7 @@ class App extends React.Component {
           <p className="App-intro">
             Selecciona la red social:
         </p>
+          {/* Mostramos solo el componente si tiene los valores correspondientes para su funcionamiento. */}
           <Select
             name="social-network-name"
             value={valueNetwork}
@@ -86,7 +109,7 @@ class App extends React.Component {
               options={this.state.selectedTypes}
             />
           )}
-
+          {/* Mostramos las características del archivo y la imagen por defecto, si tiene los valores correspondientes para su funcionamiento, así evitamos cualquier tipo de error. */}
           {valueType && (
             <p>
               Dimensión del recurso necesario:
@@ -105,4 +128,8 @@ class App extends React.Component {
   }
 }
 
+
+/**
+ * Exportamos el componente de nuestra App generado.
+ */
 export default App;
